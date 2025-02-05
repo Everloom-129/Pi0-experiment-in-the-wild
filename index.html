@@ -11,11 +11,14 @@
         .task { margin: 20px; }
         .video-container { margin-top: 10px; }
         .hardware { font-weight: bold; margin-top: 30px; }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .video-case { text-align: center; }
+        .video-case h4 { margin: 10px 0; color: #333; }
     </style>
-    <link rel="icon" href="grasp_lab_icon.png"> <!-- ADD GRASP Lab的icon -->
+    <link rel="icon" href="image/grasp_lab_icon.png"> <!-- ADD GRASP Lab的icon -->
 </head>
 <body>
-    <h1>π0 Wild Experiments 🏎️</h1>
+    <h1>π0 Wild Experiments @ GRASP Lab 🏎️</h1>
     <p>Performance Analysis Across Different Tasks</p>
     <p><strong>Experiment by: Tony Wang</strong> | Date: 2025-02-05</p> <!-- ADD my name: Tony Wang -->
 
@@ -37,16 +40,42 @@
         });
     </script>
 
+    <div class="video-container" style="margin: 40px auto;">
+        <h2>Our first try on π0-FAST 🤖</h2>
+        <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">
+
+                <a href="https://x.com/JieWang_ZJUI/status/1886896489915675132"></a>
+            </p>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
     <div class="hardware">
         <h2>Hardware Setup in GRASP Lab</h2>
-        <p>We use a variety of robotic platforms in our experiments, including:</p>
+        <p>We use the following robotic setup for our experiments:</p>
         <ul>
-            <li>Franka Emika Panda Arm</li>
-            <li>UR5 Robotic Arm</li>
-            <li>Dexterous Hand for fine manipulation</li>
-            <li>High-precision motion capture system</li>
+            <li><strong>Robot Arm:</strong> Franka Research 3 Robot Arm</li>
+            <li><strong>Gripper:</strong> Agility X Gripper</li>
+            <li><strong>Environment:</strong> GRASP Lab, Levine Building of Engineering School</li>
+            <li><strong>Control & Dataset:</strong> Running on <a href="https://droid-dataset.github.io/droid/docs/hardware-setup">DROID</a></li>
+
+            <li><strong>Control Frequency:</strong> 100 Hz</li>
+            <li><strong>Rollout Timestep:</strong> 600 </li>
+            <li><strong>Action Trunk:</strong> 8 (default)</li>
+            <li><strong>Camera Setup:</strong> 
+                <ul>
+                    <li>ZED 2 Camera (Left side)</li>
+                    <li>ZED Mini Camera (Wrist-mounted)</li>
+                </ul>
+            </li>
         </ul>
-        <img src="hardware_setup.jpg" alt="Hardware Setup in GRASP Lab" width="600"> <!-- ADD hardware setup explanation in our lab -->
+        <img src="image/camera_gripper_closeup.jpg" alt="Closer view of our camera and gripper" width="600"> <!-- Closer photo of our camera and gripper -->
+        <h3>Franka Robot in DROID Setup</h3>
+        <p>Following <a href="https://droid-dataset.github.io/droid/docs/hardware-setup">DROID</a>, the Franka robot is deployed on a mobile platform, capable of working in dynamic real-world scenarios.</p>
+        <img src="image/droid_setup_1.jpg" alt="DROID Setup Image 1" width="300">
+        <img src="image/droid_setup_2.jpg" alt="DROID Setup Image 2" width="300">
+        <img src="image/droid_setup_3.jpg" alt="DROID Setup Image 3" width="300"> <!-- 3 并排 image of droid -->
     </div>
 
     <div class="tasks">
@@ -54,60 +83,138 @@
         <div class="task">
             <h3>Pick & Place</h3>
             <p>Robot picks and places objects in a designated area.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="pick_place.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/pick_place_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/pick_place_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="task">
             <h3>T-Shirt Folding</h3>
             <p>Robot autonomously folds a t-shirt placed on a table.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="tshirt_folding.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/tshirt_folding_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/tshirt_folding_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="task">
             <h3>Grocery Bagging</h3>
             <p>Robot carefully places items into a grocery bag without tipping over.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="grocery_bagging.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/grocery_bagging_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/grocery_bagging_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="task">
             <h3>Tool Usage</h3>
             <p>Robot uses a wrench to tighten a bolt.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="tool_usage.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/tool_usage_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/tool_usage_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="task">
             <h3>Open Drawer</h3>
             <p>Robot opens a drawer using learned policies.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="open_drawer.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/open_drawer_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/open_drawer_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="task">
             <h3>Close Drawer</h3>
             <p>Robot accurately closes a drawer after task completion.</p>
-            <div class="video-container">
-                <video width="560" height="315" controls>
-                    <source src="close_drawer.mp4" type="video/mp4">
-                </video>
+            <div class="video-grid">
+                <div class="video-case">
+                    <h4>Success Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/close_drawer_success.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-case">
+                    <h4>Failure Case</h4>
+                    <div class="video-container">
+                        <video width="560" height="315" controls>
+                            <source src="video/close_drawer_failure.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
