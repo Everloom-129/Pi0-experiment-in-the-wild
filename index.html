@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>π0 Wild Experiments @ GRASP Lab, UPenn</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        canvas { max-width: 600px; margin: auto; }
+        .task { margin: 20px; }
+        .video-container { margin-top: 10px; }
+        .hardware { font-weight: bold; margin-top: 30px; }
+    </style>
+    <link rel="icon" href="grasp_lab_icon.png"> <!-- ADD GRASP Lab的icon -->
+</head>
+<body>
+    <h1>π0 Wild Experiments 🏎️</h1>
+    <p>Performance Analysis Across Different Tasks</p>
+    <p><strong>Experiment by: Tony Wang</strong> | Date: 2025-02-05</p> <!-- ADD my name: Tony Wang -->
+
+    <canvas id="pi0Chart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('pi0Chart').getContext('2d');
+        const pi0Chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Pick & Place', 'T-Shirt Folding', 'Grocery Bagging', 'Tool Usage', 'Open Drawer', 'Close Drawer'],
+                datasets: [{
+                    label: 'Success Rate (%)',
+                    data: [85, 78, 92, 70, 80, 95],
+                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FFCC33', '#57FFCC']
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+
+    <div class="hardware">
+        <h2>Hardware Setup in GRASP Lab</h2>
+        <p>We use a variety of robotic platforms in our experiments, including:</p>
+        <ul>
+            <li>Franka Emika Panda Arm</li>
+            <li>UR5 Robotic Arm</li>
+            <li>Dexterous Hand for fine manipulation</li>
+            <li>High-precision motion capture system</li>
+        </ul>
+        <img src="hardware_setup.jpg" alt="Hardware Setup in GRASP Lab" width="600"> <!-- ADD hardware setup explanation in our lab -->
+    </div>
+
+    <div class="tasks">
+        <h2>Experimental Tasks</h2>
+        <div class="task">
+            <h3>Pick & Place</h3>
+            <p>Robot picks and places objects in a designated area.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="pick_place.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>T-Shirt Folding</h3>
+            <p>Robot autonomously folds a t-shirt placed on a table.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="tshirt_folding.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>Grocery Bagging</h3>
+            <p>Robot carefully places items into a grocery bag without tipping over.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="grocery_bagging.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>Tool Usage</h3>
+            <p>Robot uses a wrench to tighten a bolt.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="tool_usage.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>Open Drawer</h3>
+            <p>Robot opens a drawer using learned policies.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="open_drawer.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3>Close Drawer</h3>
+            <p>Robot accurately closes a drawer after task completion.</p>
+            <div class="video-container">
+                <video width="560" height="315" controls>
+                    <source src="close_drawer.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
